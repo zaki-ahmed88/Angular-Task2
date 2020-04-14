@@ -1,0 +1,20 @@
+
+<h4 class="ui horizontal divider header">On Changes</h4>
+
+<div class="ui form">
+
+    <div class="field">
+        <label>Name</label>
+        <input type="text" #nameId value="{{name}}" (keyup)="setValues(nameId, postId)">
+    </div>
+
+    <div class="field">
+        <label>Post</label>
+        <textarea #postId value="{{post}}" (keyup)="setValues(nameId, postId)" rows="3"></textarea>
+
+    </div>
+
+</div>
+
+
+<app-on-changes [name]="name" [post]="post"></app-on-changes>

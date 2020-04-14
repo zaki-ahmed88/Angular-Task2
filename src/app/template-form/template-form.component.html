@@ -1,0 +1,34 @@
+
+
+<form #f="ngForm" (ngSubmit)="submit(f)" action="">
+
+    <div class="form-group">
+        <label >Email</label>
+        <input type="email" name="email" required minlength="5" pattern="zaki.ahmed88@gmail.com" maxlength="25" ngModel #email="ngModel" (change)="log(email)" class="form-control">
+    </div>
+    <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+        <div *ngIf="email.errors.required">Please Enter Your Mail</div>
+        <div *ngIf="email.errors.minlength">Min Length {{email.errors.minlength.requiredLength}}</div>
+        <div *ngIf="email.errors.pattern">Please Enter Your Mail as zaki.ahmed88@gmail.com</div>
+    </div>
+
+    <div class="form-group">
+        <label >Password</label>
+        <input type="password" name="password" #password class="form-control">
+    </div>
+
+    <!--
+    <div class="form-group">
+        <label >URL</label>
+        <input type="text" name="url" ngModel #url="ngModel" class="form-control" url>
+        <div class="alert alert-danger" *ngIf="url.invalid && url.touched">
+            <div *ngIf="url.errors.required">Please Enter Your URL</div>
+            <div *ngIf="url.errors.url">Invalid URL</div>
+        </div>
+    
+    </div>
+    -->
+    <button class="btn btn-primary" [disabled]="f.invalid" type="submit">Submit</button>
+
+
+</form>
